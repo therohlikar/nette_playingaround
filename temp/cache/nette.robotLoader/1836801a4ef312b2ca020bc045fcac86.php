@@ -5,12 +5,12 @@ return array (
     'App\\Bootstrap' => 
     array (
       0 => '/srv/app/Bootstrap.php',
-      1 => 1729730866,
+      1 => 1730295760,
     ),
     'App\\Core\\RouterFactory' => 
     array (
       0 => '/srv/app/Core/RouterFactory.php',
-      1 => 1729730866,
+      1 => 1730295442,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -32,9 +32,17 @@ return array (
       0 => '/srv/app/UI/Home/HomePresenter.php',
       1 => 1729730866,
     ),
+    'App\\UI\\ProductPresenter\\ProductPresenter' => 
+    array (
+      0 => '/srv/app/UI/Product/ProductPresenter.php',
+      1 => 1730294376,
+    ),
   ),
   1 => 
   array (
+    'null' => 1,
+    'App\\UI\\Home\\HomeDefaultTemplate' => 1,
+    'App\\UI\\Home\\HomeTemplate' => 1,
   ),
   2 => 
   array (

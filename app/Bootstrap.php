@@ -6,6 +6,7 @@ namespace App;
 
 use Nette;
 use Nette\Bootstrap\Configurator;
+use Tracy\Debugger;
 
 
 class Bootstrap
@@ -32,7 +33,7 @@ class Bootstrap
 
 	public function initializeEnvironment(): void
 	{
-		//$this->configurator->setDebugMode('true'); // enable for your remote IP
+		$this->configurator->setDebugMode(TRUE);
 		$this->configurator->enableTracy($this->rootDir . '/log');
 
 		$this->configurator->createRobotLoader()

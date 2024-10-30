@@ -1,5 +1,5 @@
 <?php
-namespace App\UI\ProductPresenter;
+namespace App\UI\Product\ProductPresenter;
 
 use Nette;
 
