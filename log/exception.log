@@ -1,0 +1,2 @@
+[2024-10-30 11-20-35] Error: Call to a member function getByType() on null in /srv/app/Bootstrap.php:49  @  http://localhost:8080/  @@  exception--2024-10-30--11-20--2bf9ef7e40.html
+[2024-10-30 11-24-00] Error: Call to a member function getByType() on null in /srv/app/Bootstrap.php:49  @  http://localhost:8080/  @@  exception--2024-10-30--11-20--2bf9ef7e40.html

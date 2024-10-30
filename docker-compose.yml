@@ -1,0 +1,22 @@
+services:
+    webserver:
+        image: 'dockette/web:php-83'
+        volumes:
+            - '.:/srv'
+        ports:
+            - '8080:80'
+    mysql:
+        image: mysql:8.0
+        container_name: mysql_db
+        environment:
+            MYSQL_DATABASE: my_database
+            MYSQL_USER: my_user
+            MYSQL_PASSWORD: my_password
+            MYSQL_ROOT_PASSWORD: root_password
+        ports:
+            - "3306:3306"
+        volumes:
+            - mysqldb:/var/lib/mysql
+
+volumes:
+    mysqldb:
