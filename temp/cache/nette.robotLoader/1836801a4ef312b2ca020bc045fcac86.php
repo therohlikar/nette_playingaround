@@ -7,10 +7,20 @@ return array (
       0 => '/srv/app/Bootstrap.php',
       1 => 1730295760,
     ),
+    'App\\Core\\Controllers\\BaseController' => 
+    array (
+      0 => '/srv/app/Core/Controllers/BaseController.php',
+      1 => 1730394010,
+    ),
+    'App\\Core\\Controllers\\ProductsController' => 
+    array (
+      0 => '/srv/app/Core/Controllers/ProductsController.php',
+      1 => 1730398375,
+    ),
     'App\\Core\\RouterFactory' => 
     array (
       0 => '/srv/app/Core/RouterFactory.php',
-      1 => 1730295442,
+      1 => 1730392435,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -32,17 +42,23 @@ return array (
       0 => '/srv/app/UI/Home/HomePresenter.php',
       1 => 1729730866,
     ),
-    'App\\UI\\ProductPresenter\\ProductPresenter' => 
+    'App\\UI\\Product\\ProductPresenter' => 
     array (
       0 => '/srv/app/UI/Product/ProductPresenter.php',
-      1 => 1730294376,
+      1 => 1730296270,
     ),
   ),
   1 => 
   array (
-    'null' => 1,
-    'App\\UI\\Home\\HomeDefaultTemplate' => 1,
-    'App\\UI\\Home\\HomeTemplate' => 1,
+    'null' => 3,
+    'App\\UI\\Home\\HomeDefaultTemplate' => 2,
+    'App\\UI\\Home\\HomeTemplate' => 2,
+    'App\\UI\\Product\\ProductPresenter\\ProductPresenter' => 2,
+    'App\\UI\\Product\\ProductListTemplate' => 2,
+    'App\\UI\\Product\\ProductTemplate' => 2,
+    'Psr\\Log\\LoggerInterface' => 3,
+    'Path' => 3,
+    'App\\Core\\Controllers\\Nette\\Database\\Explorer' => 3,
   ),
   2 => 
   array (

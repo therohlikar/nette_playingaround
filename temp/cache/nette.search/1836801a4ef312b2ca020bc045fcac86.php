@@ -7,10 +7,20 @@ return array (
       0 => '/srv/app/Bootstrap.php',
       1 => 1730295760,
     ),
+    'App\\Core\\Controllers\\BaseController' => 
+    array (
+      0 => '/srv/app/Core/Controllers/BaseController.php',
+      1 => 1730394010,
+    ),
+    'App\\Core\\Controllers\\ProductsController' => 
+    array (
+      0 => '/srv/app/Core/Controllers/ProductsController.php',
+      1 => 1730398375,
+    ),
     'App\\Core\\RouterFactory' => 
     array (
       0 => '/srv/app/Core/RouterFactory.php',
-      1 => 1730295442,
+      1 => 1730392435,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -32,10 +42,10 @@ return array (
       0 => '/srv/app/UI/Home/HomePresenter.php',
       1 => 1729730866,
     ),
-    'App\\UI\\Product\\ProductPresenter\\ProductPresenter' => 
+    'App\\UI\\Product\\ProductPresenter' => 
     array (
       0 => '/srv/app/UI/Product/ProductPresenter.php',
-      1 => 1730295983,
+      1 => 1730296270,
     ),
   ),
   1 => 
