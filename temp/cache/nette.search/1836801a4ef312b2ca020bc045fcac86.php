@@ -15,12 +15,12 @@ return array (
     'App\\Core\\Controllers\\ProductsController' => 
     array (
       0 => '/srv/app/Core/Controllers/ProductsController.php',
-      1 => 1730398375,
+      1 => 1730572885,
     ),
     'App\\Core\\RouterFactory' => 
     array (
       0 => '/srv/app/Core/RouterFactory.php',
-      1 => 1730392435,
+      1 => 1730572758,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (

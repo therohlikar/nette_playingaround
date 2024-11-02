@@ -15,12 +15,12 @@ return array (
     'App\\Core\\Controllers\\ProductsController' => 
     array (
       0 => '/srv/app/Core/Controllers/ProductsController.php',
-      1 => 1730398375,
+      1 => 1730572885,
     ),
     'App\\Core\\RouterFactory' => 
     array (
       0 => '/srv/app/Core/RouterFactory.php',
-      1 => 1730392435,
+      1 => 1730572758,
     ),
     'App\\UI\\Accessory\\LatteExtension' => 
     array (
@@ -50,15 +50,9 @@ return array (
   ),
   1 => 
   array (
-    'null' => 3,
-    'App\\UI\\Home\\HomeDefaultTemplate' => 2,
-    'App\\UI\\Home\\HomeTemplate' => 2,
-    'App\\UI\\Product\\ProductPresenter\\ProductPresenter' => 2,
-    'App\\UI\\Product\\ProductListTemplate' => 2,
-    'App\\UI\\Product\\ProductTemplate' => 2,
+    'null' => 1,
     'Psr\\Log\\LoggerInterface' => 3,
-    'Path' => 3,
-    'App\\Core\\Controllers\\Nette\\Database\\Explorer' => 3,
+    'Path' => 1,
   ),
   2 => 
   array (
