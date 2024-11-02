@@ -20,10 +20,6 @@ class ProductsController extends BaseController
      */
     public function index(ApiRequest $request, ApiResponse $response): ApiResponse
     {
-        // This is an endpoint
-        //  - its path is /api/base/products/
-        //  - it should be available on address example.com/api/base/products/
-
         $response = $response->writeBody(Json::encode([
             [
                 'id' => 1,
@@ -38,6 +34,8 @@ class ProductsController extends BaseController
                 'emailAddress' => 'elon.musk@spacex.com',
             ],
         ]));
+
+        // literally from apitte docs, this should be pretty easy - now just inject database
 
         return $response;
     }
