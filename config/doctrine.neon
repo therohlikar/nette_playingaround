@@ -1,0 +1,22 @@
+extensions:
+    doctrine.dbal: Nettrine\DBAL\DI\DbalExtension
+    doctrine.dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension
+    doctrine.orm: Nettrine\ORM\DI\OrmExtension
+    doctrine.orm.attributes: Nettrine\ORM\DI\OrmAttributesExtension
+    nettrine.orm.cache: Nettrine\ORM\DI\OrmCacheExtension
+    doctrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension
+    doctrine.cache: Nettrine\Cache\DI\CacheExtension
+
+doctrine.orm.attributes: 
+    mapping:
+        App\Model: %appDir%/Model # The root folder where to start search for entities
+
+doctrine.dbal:
+    debug:
+        panel: %debugMode%
+    connection:
+        driver: pdo_mysql
+        host: %doctrine.host%
+        user: %doctrine.user%
+        password: %doctrine.password%
+        dbname: %doctrine.dbname%

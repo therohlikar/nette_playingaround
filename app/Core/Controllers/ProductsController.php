@@ -6,13 +6,18 @@ use Apitte\Core\Annotation\Controller\Method;
 use Apitte\Core\Annotation\Controller\Path;
 use Apitte\Core\Http\ApiRequest;
 use Apitte\Core\Http\ApiResponse;
+use Doctrine\ORM\EntityManagerInterface;
 use Nette\Utils\Json;
+use App\Model\Product;
 
 /**
  * @Path("/products")
  */
 class ProductsController extends BaseController
 {
+    public function __construct(private EntityManagerInterface $em){
+
+    }
 
     /**
      * @Path("/")
@@ -20,24 +25,33 @@ class ProductsController extends BaseController
      */
     public function index(ApiRequest $request, ApiResponse $response): ApiResponse
     {
-        $response = $response->writeBody(Json::encode([
-            [
-                'id' => 1,
-                'firstName' => 'John',
-                'lastName' => 'Doe',
-                'emailAddress' => 'john@doe.com',
-            ],
-            [
-                'id' => 2,
-                'firstName' => 'Elon',
-                'lastName' => 'Musk',
-                'emailAddress' => 'elon.musk@spacex.com',
-            ],
-        ]));
+        $products = $this->em->getRepository(Product::class)->findAll();
 
-        // literally from apitte docs, this should be pretty easy - now just inject database
+        $jsonData = Json::encode($products);
 
-        return $response;
+        $response->getBody()->write($jsonData);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    /**
+     * @Path("/")
+     * @Method("POST")
+     */
+    public function create(ApiRequest $request, ApiResponse $response): ApiResponse
+    {
+        $requestBody = $request->getJsonBody();
+
+        $product = new Product(
+            $requestBody['name'],
+        );
+
+        $this->em->persist(product);
+        $this->em->flush();
+
+        $jsonData = Json::encode($product);
+
+        $response->getBody()->write($jsonData);
+        return $response->withHeader('Content-Type', 'application/json');
     }
 
 }
