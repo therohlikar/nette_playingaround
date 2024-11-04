@@ -1,5 +1,6 @@
 services:
 	- App\Core\Controllers\ProductsController
+	- App\Core\Controllers\ProductPriceHistoryController
 
 search:
 	-	in: %appDir%

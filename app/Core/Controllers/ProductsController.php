@@ -26,7 +26,7 @@ class ProductsController extends BaseController
      * @Path("/")
      * @Method("GET")
      */
-    public function index(ApiRequest $request, ApiResponse $response): ApiResponse
+    public function getProducts(ApiRequest $request, ApiResponse $response): ApiResponse
     {
         $products = $this->em->getRepository(Product::class)->findBy(['available' => true]);
 

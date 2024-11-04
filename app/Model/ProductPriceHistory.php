@@ -32,4 +32,21 @@ class ProductPriceHistory
         $this->oldPrice = $oldPrice;
         $this->dateOfChange = new \DateTime('now', new \DateTimeZone('Europe/Prague'));
     }
+
+    public function getId(): int {
+        return $this->id;
+    }
+
+    public function getNewPrice(): float {
+        return $this->newPrice;
+    }
+
+    public function getOldPrice(): float {
+        return $this->oldPrice;
+    }
+
+    public function getDateOfChange(): \DateTime {
+        return $this->dateOfChange;
+    }
+
 }
