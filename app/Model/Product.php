@@ -42,4 +42,8 @@ class Product implements \JsonSerializable
             'available' => $this->available,
         ];
     }
+
+    public function changePrice($newPrice){
+        $this->price = $newPrice;
+    }
 }
