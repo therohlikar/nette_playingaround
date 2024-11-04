@@ -1,52 +1,20 @@
-Nette Web Project
-=================
+To startup Docker, 'docker compose up'
 
-Welcome to the Nette Web Project! This is a basic skeleton application built using
-[Nette](https://nette.org), ideal for kick-starting your new web projects.
+To create schema, used ORM schema tool: 'php bin/console orm:schema-tool:create'
 
-Nette is a renowned PHP web development framework, celebrated for its user-friendliness,
-robust security, and outstanding performance. It's among the safest choices
-for PHP frameworks out there.
+localhost:8080/api/base/
 
-If Nette helps you, consider supporting it by [making a donation](https://nette.org/donate).
-Thank you for your generosity!
+products -> GET product list
+products -> POST create product item 
 
+products/{id} -> PUT updates price of specific product item
+products/delete/{id} -> DELETE deleted specific product item with its children (meaning the items in the price history)
 
-Requirements
-------------
-
-This Web Project is compatible with Nette 3.2 and requires PHP 8.1.
+history/{id} -> GET price history of specific product item
 
 
-Installation
-------------
+For testing purposes I used Postman in Visual Studio Code
+- framework Nette with Apitte for API, mySQL for database and PHPmyAdmin for Db GUI
+- ORM Doctrine to manipulate with DB
 
-To install the Web Project, Composer is the recommended tool. If you're new to Composer,
-follow [these instructions](https://doc.nette.org/composer). Then, run:
-
-	composer create-project nette/web-project path/to/install
-	cd path/to/install
-
-Ensure the `temp/` and `log/` directories are writable.
-
-
-Web Server Setup
-----------------
-
-To quickly dive in, use PHP's built-in server:
-
-	php -S localhost:8000 -t www
-
-Then, open `http://localhost:8000` in your browser to view the welcome page.
-
-For Apache or Nginx users, configure a virtual host pointing to your project's `www/` directory.
-
-**Important Note:** Ensure `app/`, `config/`, `log/`, and `temp/` directories are not web-accessible.
-Refer to [security warning](https://nette.org/security-warning) for more details.
-
-
-Minimal Skeleton
-----------------
-
-For demonstrating issues or similar tasks, rather than starting a new project, use
-this [minimal skeleton](https://github.com/nette/web-project/tree/minimal).
+Actually happy with the results, tho it definitely can be improved. 
