@@ -30,6 +30,6 @@ class ProductPriceHistory
         $this->product = $product;
         $this->newPrice = $newPrice;
         $this->oldPrice = $oldPrice;
-        $this->dateOfChange = new \DateTime();
+        $this->dateOfChange = new \DateTime('now', new \DateTimeZone('Europe/Prague'));
     }
 }
