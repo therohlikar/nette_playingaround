@@ -15,7 +15,7 @@ return array (
     'App\\Core\\Controllers\\ProductsController' => 
     array (
       0 => '/srv/app/Core/Controllers/ProductsController.php',
-      1 => 1730643470,
+      1 => 1730644113,
     ),
     'App\\Core\\RouterFactory' => 
     array (
@@ -25,7 +25,7 @@ return array (
     'App\\Model\\Product' => 
     array (
       0 => '/srv/app/Model/Product.php',
-      1 => 1730643121,
+      1 => 1730644188,
     ),
     'App\\Model\\ProductPriceHistory' => 
     array (

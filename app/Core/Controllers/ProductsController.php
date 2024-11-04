@@ -39,13 +39,15 @@ class ProductsController extends BaseController
      */
     public function create(ApiRequest $request, ApiResponse $response): ApiResponse
     {
-        $requestBody = $request->getJsonBody();
-
+        $requestBody = Json::decode($request->getBody()->getContents(), Json::FORCE_ARRAY);
+        
         $product = new Product(
             $requestBody['name'],
+            $requestBody['stock_count'],
+            $requestBody['price']
         );
 
-        $this->em->persist(product);
+        $this->em->persist($product);
         $this->em->flush();
 
         $jsonData = Json::encode($product);
