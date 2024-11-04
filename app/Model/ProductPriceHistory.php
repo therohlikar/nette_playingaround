@@ -25,4 +25,11 @@ class ProductPriceHistory
 
     #[ORM\Column]
     protected \DateTime $dateOfChange;
+
+    public function __construct(Product $product, float $newPrice, float $oldPrice){
+        $this->product = $product;
+        $this->newPrice = $newPrice;
+        $this->oldPrice = $oldPrice;
+        $this->dateOfChange = new \DateTime();
+    }
 }

@@ -46,4 +46,9 @@ class Product implements \JsonSerializable
     public function changePrice($newPrice){
         $this->price = $newPrice;
     }
+
+    public function getPrice(): float
+{
+    return $this->price;
+}
 }

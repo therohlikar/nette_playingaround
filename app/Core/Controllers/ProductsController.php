@@ -11,6 +11,7 @@ use Apitte\Core\Http\ApiResponse;
 use Doctrine\ORM\EntityManagerInterface;
 use Nette\Utils\Json;
 use App\Model\Product;
+use App\Model\ProductPriceHistory;
 
 /**
  * @Path("/products")
@@ -83,13 +84,19 @@ class ProductsController extends BaseController
             return $response->withStatus(404, 'Product not found');
         }
 
-        // Assuming "name" and "price" as updatable fields; adjust as necessary
+        $oldPrice = $product->getPrice();
+
         if (isset($requestBody['price'])) {
             $product->changePrice($requestBody['price']);
         }
 
-        // insert to productpricehistory
+        $historyInput = new ProductPriceHistory(
+            $product,
+            $requestBody['price'],
+            $oldPrice
+        );
 
+        $this->em->persist($historyInput);
         $this->em->flush();
         $jsonData = Json::encode($product);
 
