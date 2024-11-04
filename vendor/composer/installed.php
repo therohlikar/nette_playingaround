@@ -154,6 +154,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'doctrine/migrations' => array(
+            'pretty_version' => '3.8.2',
+            'version' => '3.8.2.0',
+            'reference' => '5007eb1168691225ac305fe16856755c20860842',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../doctrine/migrations',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'doctrine/orm' => array(
             'pretty_version' => '2.20.0',
             'version' => '2.20.0.0',
@@ -550,6 +559,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'symfony/stopwatch' => array(
+            'pretty_version' => 'v7.1.6',
+            'version' => '7.1.6.0',
+            'reference' => '8b4a434e6e7faf6adedffb48783a5c75409a1a05',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/stopwatch',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/string' => array(
             'pretty_version' => 'v7.1.6',
             'version' => '7.1.6.0',
@@ -567,6 +585,15 @@
             'install_path' => __DIR__ . '/../symfony/thanks',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'symfony/var-exporter' => array(
+            'pretty_version' => 'v7.1.6',
+            'version' => '7.1.6.0',
+            'reference' => '90173ef89c40e7c8c616653241048705f84130ef',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/var-exporter',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'tracy/tracy' => array(
             'pretty_version' => 'v2.10.8',

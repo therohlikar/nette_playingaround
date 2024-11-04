@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductRepository;
+use App\Model\ProductPriceHistory;
 
 #[ORM\Table(name: 'product')]
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
@@ -48,7 +49,11 @@ class Product implements \JsonSerializable
     }
 
     public function getPrice(): float
-{
-    return $this->price;
-}
+    {
+        return $this->price;
+    }
+
+    public function updateAvailability($value){
+        $this->available = $value;
+    }
 }

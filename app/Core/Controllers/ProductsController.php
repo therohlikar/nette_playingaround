@@ -28,7 +28,7 @@ class ProductsController extends BaseController
      */
     public function index(ApiRequest $request, ApiResponse $response): ApiResponse
     {
-        $products = $this->em->getRepository(Product::class)->findAll();
+        $products = $this->em->getRepository(Product::class)->findBy(['available' => true]);
 
         $jsonData = Json::encode($products);
 
@@ -101,6 +101,40 @@ class ProductsController extends BaseController
         $jsonData = Json::encode($product);
 
         $response->getBody()->write($jsonData);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    /**
+     * @Path("/delete/{id}")
+     * @Method("DELETE")
+     * @RequestParameters({
+     *      @RequestParameter(name="id", type="int", description="Product ID")
+     * })
+     */
+    public function delete(ApiRequest $request, ApiResponse $response): ApiResponse
+    {
+        // localhost:8080/api/base/products/delete/1
+        // {
+        //     "id":1
+        // }
+        $requestBody = Json::decode($request->getBody()->getContents(), Json::FORCE_ARRAY);
+
+        $product = $this->em->getRepository(Product::class)->find($requestBody['id']);
+        if (!$product) {
+            $response->getBody()->write("Product not found");
+            return $response->withHeader('Content-Type', 'application/json');
+        }
+
+        $history = $this->em->getRepository(ProductPriceHistory::class)->findBy(['product' => $requestBody['id']]);
+
+        foreach($history as $row){
+            $this->em->remove($row);
+        }
+
+        $this->em->remove($product);
+        $this->em->flush();
+
+        $response->getBody()->write("OK");
         return $response->withHeader('Content-Type', 'application/json');
     }
 }
