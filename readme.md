@@ -16,7 +16,7 @@ Is a short testing script for RestAPI.
 
     docker compose up
 
-2. Open up console on the server and create the ORM scheme using
+2. Open up console on the server and create database tables using the ORM scheme using
 
     php bin/console orm:schema-tool:create
     
