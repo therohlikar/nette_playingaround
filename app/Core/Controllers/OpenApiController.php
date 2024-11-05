@@ -6,6 +6,7 @@ use Apitte\Core\Annotation\Controller\Controller;
 use Apitte\Core\Annotation\Controller\ControllerPath;
 use Apitte\Core\Annotation\Controller\Method;
 use Apitte\Core\Annotation\Controller\Path;
+use Apitte\Core\Annotation\Controller\OpenApi;
 use Apitte\Core\Http\ApiRequest;
 use Apitte\Core\Http\ApiResponse;
 use Apitte\Core\UI\Controller\IController;
@@ -31,7 +32,7 @@ final class OpenApiController implements IController
     public function openApiIndex(ApiRequest $request, ApiResponse $response): ApiResponse
     {
         return $response
-			->withAddedHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Origin', '*')
 			->writeJsonBody(
 				$this->schemaBuilder->build()->toArray()
 			);

@@ -6,6 +6,7 @@ use Apitte\Core\Annotation\Controller\Method;
 use Apitte\Core\Annotation\Controller\Path;
 use Apitte\Core\Annotation\Controller\RequestParameters;
 use Apitte\Core\Annotation\Controller\RequestParameter;
+use Apitte\Core\Annotation\RequestBody;
 use Apitte\Core\Http\ApiRequest;
 use Apitte\Core\Http\ApiResponse;
 use Doctrine\ORM\EntityManagerInterface;
@@ -72,11 +73,6 @@ class ProductsController extends BaseController
      */
     public function create(ApiRequest $request, ApiResponse $response): ApiResponse
     {
-        // {
-        //     "name":"testing",
-        //     "stock_count":4,
-        //     "price":1.99
-        // }
         $requestBody = Json::decode($request->getBody()->getContents(), Json::FORCE_ARRAY);
 
         $product = new Product(
