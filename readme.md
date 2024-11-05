@@ -4,8 +4,9 @@ To create schema, used ORM schema tool: 'php bin/console orm:schema-tool:create'
 
 localhost:8080/api/base/
 
-products -> GET product list
+products -> GET product list (with json: "'sort':true" can be sorted by stock count)
 products -> POST create product item 
+products/find -> GET products with keywords (with json: "'keywords':'test')
 
 products/{id} -> PUT updates price of specific product item
 products/delete/{id} -> DELETE deleted specific product item with its children (meaning the items in the price history)
