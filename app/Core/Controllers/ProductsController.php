@@ -28,7 +28,12 @@ class ProductsController extends BaseController
      */
     public function getProducts(ApiRequest $request, ApiResponse $response): ApiResponse
     {
-        $products = $this->em->getRepository(Product::class)->findBy(['available' => true]);
+        $requestBody = Json::decode($request->getBody()->getContents(), Json::FORCE_ARRAY);
+
+        $products = $this->em->getRepository(Product::class)->findBy(
+            ['available' => true], 
+            (isset($requestBody['sort']) ? ['stockCount' => 'DESC'] : [])
+        );
 
         $jsonData = Json::encode($products);
 
