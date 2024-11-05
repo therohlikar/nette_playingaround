@@ -42,6 +42,31 @@ class ProductsController extends BaseController
     }
 
     /**
+     * @Path("/find")
+     * @Method("GET")
+     */
+    public function findProductByName(ApiRequest $request, ApiResponse $response): ApiResponse
+    {
+        // {
+        //     "keyword":"lux"
+        // }
+
+        $requestBody = Json::decode($request->getBody()->getContents(), Json::FORCE_ARRAY);
+
+        $products = $this->em->getRepository(Product::class)
+            ->createQueryBuilder('products')
+            ->where('products.name LIKE :name')
+            ->setParameter('name', '%' . (isset($requestBody['keyword']) ? $requestBody['keyword'] : "") . '%')
+            ->getQuery()
+            ->getResult();
+
+        $jsonData = Json::encode($products);
+
+        $response->getBody()->write($jsonData);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    /**
      * @Path("/")
      * @Method("POST")
      */
