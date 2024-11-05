@@ -24,8 +24,14 @@ extensions:
     console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
 
 api:
-    debug: %debugMode%
-    catchException: true # Sets if exception should be catched and transformed into response or rethrown to output (debug only)
+	debug: %debugMode%
+	plugins:
+		Apitte\Core\DI\Plugin\CoreSchemaPlugin:
+		Apitte\Core\DI\Plugin\CoreServicesPlugin:
+		Apitte\Debug\DI\DebugPlugin:
+		Apitte\OpenApi\DI\OpenApiPlugin:
+			swaggerUi:
+				panel: true
 
 console:
 	name: Acme Project

@@ -1,6 +1,7 @@
 services:
 	- App\Core\Controllers\ProductsController
 	- App\Core\Controllers\ProductPriceHistoryController
+	- App\Core\Controllers\OpenApiController
 
 search:
 	-	in: %appDir%
