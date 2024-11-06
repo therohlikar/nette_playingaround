@@ -6,7 +6,7 @@ use Apitte\Core\Annotation\Controller\Method;
 use Apitte\Core\Annotation\Controller\Path;
 use Apitte\Core\Annotation\Controller\RequestParameters;
 use Apitte\Core\Annotation\Controller\RequestParameter;
-use Apitte\Core\Annotation\RequestBody;
+use Apitte\Core\Annotation\Controller\RequestBody;
 use Apitte\Core\Http\ApiRequest;
 use Apitte\Core\Http\ApiResponse;
 use Doctrine\ORM\EntityManagerInterface;
@@ -70,6 +70,12 @@ class ProductsController extends BaseController
     /**
      * @Path("/")
      * @Method("POST")
+     * @RequestBody(
+     *     description="Product - json",
+     *     entity="App\Model\Product",
+     *     required=true,
+     *     validation=true
+     * )
      */
     public function create(ApiRequest $request, ApiResponse $response): ApiResponse
     {
@@ -100,12 +106,12 @@ class ProductsController extends BaseController
     {
         // localhost:8080/api/base/products/1
         // {
-        //     "id":1,
         //     "price":6.99
         // }
+        $id = $request->getParameter('id');
         $requestBody = Json::decode($request->getBody()->getContents(), Json::FORCE_ARRAY);
 
-        $product = $this->em->getRepository(Product::class)->find($requestBody['id']);
+        $product = $this->em->getRepository(Product::class)->find($id);
         if (!$product) {
             return $response->withStatus(404, 'Product not found');
         }
@@ -114,44 +120,50 @@ class ProductsController extends BaseController
 
         if (isset($requestBody['price'])) {
             $product->changePrice($requestBody['price']);
+
+            $historyInput = new ProductPriceHistory(
+                $product,
+                $requestBody['price'],
+                $oldPrice
+            );
+    
+            $this->em->persist($historyInput);
+            $this->em->flush();
+            $jsonData = Json::encode($product);
+    
+            $response->getBody()->write($jsonData);
+        }else{
+            $response->getBody()->write("{ 'message':'Missing value in :price: variable', 'status':'400' }");
+            
+            return $response
+                ->withHeader('Content-Type', 'application/json')
+                ->withStatus(400);
         }
-
-        $historyInput = new ProductPriceHistory(
-            $product,
-            $requestBody['price'],
-            $oldPrice
-        );
-
-        $this->em->persist($historyInput);
-        $this->em->flush();
-        $jsonData = Json::encode($product);
-
-        $response->getBody()->write($jsonData);
-        return $response->withHeader('Content-Type', 'application/json');
+        
+        return $response
+            ->withHeader('Content-Type', 'application/json')
+            ->withStatus(200);
     }
 
     /**
      * @Path("/delete/{id}")
      * @Method("DELETE")
      * @RequestParameters({
-     *      @RequestParameter(name="id", type="int", description="Product ID")
+     *      @RequestParameter(name="id", type="int", description="Product ID to delete")
      * })
      */
     public function delete(ApiRequest $request, ApiResponse $response): ApiResponse
     {
         // localhost:8080/api/base/products/delete/1
-        // {
-        //     "id":1
-        // }
-        $requestBody = Json::decode($request->getBody()->getContents(), Json::FORCE_ARRAY);
+        $id = $request->getParameter('id');
 
-        $product = $this->em->getRepository(Product::class)->find($requestBody['id']);
+        $product = $this->em->getRepository(Product::class)->find($id );
         if (!$product) {
             $response->getBody()->write("Product not found");
             return $response->withHeader('Content-Type', 'application/json');
         }
 
-        $history = $this->em->getRepository(ProductPriceHistory::class)->findBy(['product' => $requestBody['id']]);
+        $history = $this->em->getRepository(ProductPriceHistory::class)->findBy(['product' => $id]);
 
         foreach($history as $row){
             $this->em->remove($row);

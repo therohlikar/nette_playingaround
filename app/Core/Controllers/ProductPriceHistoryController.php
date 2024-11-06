@@ -31,15 +31,15 @@ class ProductPriceHistoryController extends BaseController
      */
     public function getProductHistory(ApiRequest $request, ApiResponse $response): ApiResponse
     {
-        $requestBody = Json::decode($request->getBody()->getContents(), Json::FORCE_ARRAY);
+        $id = $request->getParameter('id');
 
-        $product = $this->em->getRepository(Product::class)->find($requestBody['id']);
+        $product = $this->em->getRepository(Product::class)->find($id);
         if (!$product) {
             $response->getBody()->write("Product not found");
             return $response->withHeader('Content-Type', 'application/json');
         }
 
-        $history = $this->em->getRepository(ProductPriceHistory::class)->findBy(['product' => $requestBody['id']]);
+        $history = $this->em->getRepository(ProductPriceHistory::class)->findBy(['product' => $id]);
         
         $historyData = array_map(function ($entry) {
             return [
