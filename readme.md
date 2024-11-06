@@ -26,7 +26,7 @@ Is a short testing script for RestAPI.
 
 4. SwaggerUI runs on (WIP)
 
-    localhost:8080/swagger.html
+    localhost:8080/docs/swagger.html
 
 ### DEVELOPMENT
 
