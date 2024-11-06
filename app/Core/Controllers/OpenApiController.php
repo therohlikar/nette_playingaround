@@ -13,7 +13,7 @@ use Apitte\Core\UI\Controller\IController;
 use Apitte\OpenApi\ISchemaBuilder;
 
 /**
- * @Path("/openapi")
+ * @Path("/api/openapi")
  */
 final class OpenApiController implements IController
 {
