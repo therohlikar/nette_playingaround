@@ -9,7 +9,8 @@ Is a short testing script for RestAPI.
 - [Doctrine/ORM](https://www.doctrine-project.org) as DB manipulator
 - [SwaggerUI](http://swagger.io) (with Contributte/Apitte/OpenAPI)
 - [Docker](http://docker.com) to run it all
-- [Postman](https://marketplace.visualstudio.com/items?itemName=Postman.postman-for-vscode) extension in Visual Studio Code
+- [Postman](https://marketplace.visualstudio.com/items?itemName=Postman.postman-for-vscode)extension in Visual Studio Code
+- [swagger-php](https://zircote.github.io/swagger-php/) OpenAPI annotations for SwaggerUI
 
 ### START API
 1. Simply have docker installed and use update command in the project
@@ -24,7 +25,7 @@ Is a short testing script for RestAPI.
 
     localhost:8080/api/base/
 
-4. SwaggerUI runs on (WIP)
+4. SwaggerUI runs on
 
     localhost:8080/docs/swagger.html
 
