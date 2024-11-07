@@ -1,0 +1,317 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My First API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/base/history/{id}": {
+            "get": {
+                "summary": "Product's price history",
+                "description": "Lists history of change in the product's price",
+                "operationId": "808a970c175d2c42020d195a38e28b05",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Product's ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product's price history",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "product_id": {
+                                                "type": "integer",
+                                                "example": "2"
+                                            },
+                                            "new_price": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 499.99
+                                            },
+                                            "old_price": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 10.99
+                                            },
+                                            "date_of_change": {
+                                                "type": "timestamp",
+                                                "format": "Y-m-d H:i:s",
+                                                "example": "2024-11-04 15:14:11"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/base/products": {
+            "get": {
+                "summary": "Products list",
+                "description": "Lists all products, which are available",
+                "operationId": "d999b5f91439220e8dbf8b80724b49de",
+                "parameters": [
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Descending sort",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Products list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Luxury Sofa"
+                                            },
+                                            "price": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 499.99
+                                            },
+                                            "stock_count": {
+                                                "type": "number",
+                                                "format": "integer",
+                                                "example": 10
+                                            },
+                                            "available": {
+                                                "type": "boolean",
+                                                "format": "bool",
+                                                "example": false
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create new product",
+                "operationId": "84fc6768a3ef1a0998c0266bb5641300",
+                "requestBody": {
+                    "description": "Product - create new",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "price",
+                                    "stock_count"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Example Product"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 19.99
+                                    },
+                                    "stock_count": {
+                                        "type": "integer",
+                                        "example": 10
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product created successfully"
+                    },
+                    "400": {
+                        "description": "Missing variables"
+                    }
+                }
+            }
+        },
+        "/api/base/products/find": {
+            "get": {
+                "summary": "Find products by name keyword",
+                "description": "Searches for products with names that contain the provided keyword.",
+                "operationId": "c68d4daac698e9e112f935a89e20a6aa",
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "Keyword to search for in product names",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Search results matching keyword",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Luxury Sofa"
+                                            },
+                                            "price": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 499.99
+                                            },
+                                            "stock_count": {
+                                                "type": "number",
+                                                "format": "integer",
+                                                "example": 10
+                                            },
+                                            "available": {
+                                                "type": "boolean",
+                                                "format": "bool",
+                                                "example": false
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/base/products/{id}": {
+            "put": {
+                "summary": "Update price of a product",
+                "operationId": "037f32db7ca5f3f89eb1a29056bd40c7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Product ID to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "New price of a product",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "price": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 29.99
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Product updated successfully"
+                    },
+                    "404": {
+                        "description": "Product not found"
+                    },
+                    "400": {
+                        "description": "Missing variables"
+                    }
+                }
+            }
+        },
+        "/api/base/products/delete/{id}": {
+            "delete": {
+                "summary": "Delete a product and its price history",
+                "description": "Deletes a product by its ID, including all related entries in the price history table.",
+                "operationId": "298fe8b4579201f6db2f79bea3366f67",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the product to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product and associated history deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "example": "OK"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Product not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "example": "Product not found"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    }
+}

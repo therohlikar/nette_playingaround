@@ -22,7 +22,8 @@
 		"contributte/apitte": "^0.12.3",
 		"nettrine/orm": "^0.8.4",
 		"contributte/console": "^0.10.1",
-		"doctrine/migrations": "^3.8"
+		"doctrine/migrations": "^3.8",
+		"zircote/swagger-php": "^4.11"
 	},
 	"require-dev": {
 		"nette/tester": "^2.5",

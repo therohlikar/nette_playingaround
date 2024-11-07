@@ -12,8 +12,11 @@ use Apitte\Core\Http\ApiResponse;
 use Apitte\Core\UI\Controller\IController;
 use Apitte\OpenApi\ISchemaBuilder;
 
+use OpenApi\Annotations as OA;
+
 /**
  * @Path("/api/openapi")
+ * @OA\Info(title="My First API", version="0.1")
  */
 final class OpenApiController implements IController
 {
