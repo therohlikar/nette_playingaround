@@ -16,7 +16,7 @@ use OpenApi\Annotations as OA;
 
 /**
  * @Path("/api/openapi")
- * @OA\Info(title="My First API", version="0.1")
+ * @OA\Info(title="Swagger UI OpenAPI for nette_playingaround", version="BETA")
  */
 final class OpenApiController implements IController
 {
