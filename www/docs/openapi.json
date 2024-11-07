@@ -7,6 +7,9 @@
     "paths": {
         "/api/base/history/{id}": {
             "get": {
+                "tags": [
+                    "Product's History"
+                ],
                 "summary": "Product's price history",
                 "description": "Lists history of change in the product's price",
                 "operationId": "808a970c175d2c42020d195a38e28b05",
@@ -65,6 +68,9 @@
         },
         "/api/base/products": {
             "get": {
+                "tags": [
+                    "Products"
+                ],
                 "summary": "Products list",
                 "description": "Lists all products, which are available",
                 "operationId": "d999b5f91439220e8dbf8b80724b49de",
@@ -121,6 +127,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "Products"
+                ],
                 "summary": "Create new product",
                 "operationId": "84fc6768a3ef1a0998c0266bb5641300",
                 "requestBody": {
@@ -166,6 +175,9 @@
         },
         "/api/base/products/find": {
             "get": {
+                "tags": [
+                    "Products"
+                ],
                 "summary": "Find products by name keyword",
                 "description": "Searches for products with names that contain the provided keyword.",
                 "operationId": "c68d4daac698e9e112f935a89e20a6aa",
@@ -224,6 +236,9 @@
         },
         "/api/base/products/{id}": {
             "put": {
+                "tags": [
+                    "Products"
+                ],
                 "summary": "Update price of a product",
                 "operationId": "037f32db7ca5f3f89eb1a29056bd40c7",
                 "parameters": [
@@ -270,6 +285,9 @@
         },
         "/api/base/products/delete/{id}": {
             "delete": {
+                "tags": [
+                    "Products"
+                ],
                 "summary": "Delete a product and its price history",
                 "description": "Deletes a product by its ID, including all related entries in the price history table.",
                 "operationId": "298fe8b4579201f6db2f79bea3366f67",
@@ -313,5 +331,15 @@
                 }
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "Product's History",
+            "description": "Product's History Methods"
+        },
+        {
+            "name": "Products",
+            "description": "Products methods"
+        }
+    ]
 }

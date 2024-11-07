@@ -19,6 +19,10 @@ use OpenApi\Annotations as OA;
 
 /**
  * @Path("/products")
+ * @OA\Tag(
+ *     name="Products",   
+ *     description="Products methods"
+ * )
  */
 class ProductsController extends BaseController
 {
@@ -30,6 +34,7 @@ class ProductsController extends BaseController
      * @Path("/")
      * @Method("GET")
      * @OA\Get(
+     *    tags={"Products"},
     *     path="/api/base/products",
     *     summary="Products list",
     *     description="Lists all products, which are available",
@@ -75,6 +80,7 @@ class ProductsController extends BaseController
      * @Path("/find")
      * @Method("GET")
      * @OA\Get(
+     *    tags={"Products"},
     *     path="/api/base/products/find",
     *     summary="Find products by name keyword",
     *     description="Searches for products with names that contain the provided keyword.",
@@ -124,6 +130,7 @@ class ProductsController extends BaseController
      * @Method("POST")
      * 
      * @OA\Post(
+     *     tags={"Products"},
      *     path="/api/base/products",
      *     summary="Create new product",
      *     @OA\RequestBody(
@@ -180,6 +187,7 @@ class ProductsController extends BaseController
      * @Path("/{id}")
      * @Method("PUT")
      * @OA\Put(
+     *     tags={"Products"},
      *     path="/api/base/products/{id}",
      *     summary="Update price of a product",
      *     @OA\Parameter(
@@ -253,6 +261,7 @@ class ProductsController extends BaseController
      * @Path("/delete/{id}")
      * @Method("DELETE")
     * @OA\Delete(
+    *     tags={"Products"},
     *     path="/api/base/products/delete/{id}",
     *     summary="Delete a product and its price history",
     *     description="Deletes a product by its ID, including all related entries in the price history table.",

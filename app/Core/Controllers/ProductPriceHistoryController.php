@@ -16,6 +16,10 @@ use OpenApi\Annotations as OA;
 
 /**
  * @Path("/history")
+ * @OA\Tag(
+ *     name="Product's History",   
+ *     description="Product's History Methods"
+ * )
  */
 class ProductPriceHistoryController extends BaseController
 {
@@ -27,6 +31,7 @@ class ProductPriceHistoryController extends BaseController
      * @Path("/{id}")
      * @Method("GET")
      * @OA\Get(
+     *    tags={"Product's History"},
     *     path="/api/base/history/{id}",
     *     summary="Product's price history",
     *     description="Lists history of change in the product's price",
