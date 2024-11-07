@@ -234,9 +234,8 @@ class ProductsController extends BaseController
     
             $this->em->persist($historyInput);
             $this->em->flush();
-            $jsonData = Json::encode($product);
-    
-            $response->getBody()->write($jsonData);
+
+            $response->getBody()->write(Json::encode($product));
         }else{
             $response->getBody()->write("{ 'message':'Missing value in :price: variable', 'status':'400' }");
             
